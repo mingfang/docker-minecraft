@@ -1,0 +1,1 @@
+docker run -d -p 49565:49565 -t minecraft
