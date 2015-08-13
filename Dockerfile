@@ -29,6 +29,14 @@ RUN echo "eula=true" > eula.txt
 
 RUN wget http://tcpr.ca/files/craftbukkit/craftbukkit-1.8.8-R0.1-SNAPSHOT-latest.jar
 
+#Node
+RUN wget -O - http://nodejs.org/dist/v0.12.7/node-v0.12.7-linux-x64.tar.gz | tar xz
+RUN mv node* node && \
+    ln -s /node/bin/node /usr/local/bin/node && \
+    ln -s /node/bin/npm /usr/local/bin/npm
+ENV NODE_PATH /usr/local/lib/node_modules
+RUN npm config set loglevel info
+
 #Plugins
 RUN mkdir -p plugins
 RUN cd plugins && \
@@ -37,6 +45,11 @@ RUN cd plugins && \
     wget http://dev.bukkit.org/media/files/889/302/Factions.jar
 RUN cd plugins && \
     wget http://dev.bukkit.org/media/files/809/44/NickNames.jar
+RUN cd plugins && \
+    wget http://dev.bukkit.org/media/files/893/378/EssentialsCmd_v1.0.9.jar
+
+#For tailing log
+RUN npm install -g frontail
 
 #Add runit services
 ADD sv /etc/service 
