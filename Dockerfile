@@ -27,6 +27,13 @@ RUN wget -O minecraft_server.jar https://s3.amazonaws.com/Minecraft.Download/ver
 #Eula
 RUN echo "eula=true" > eula.txt
 
+RUN mkdir -p plugins
+RUN cd plugins && \
+    wget http://dev.bukkit.org/media/files/889/301/MassiveCore.jar
+RUN cd plugins && \
+    wget http://dev.bukkit.org/media/files/889/302/Factions.jar
+RUN wget http://tcpr.ca/files/craftbukkit/craftbukkit-1.8.8-R0.1-SNAPSHOT-latest.jar
+
 #Add runit services
 ADD sv /etc/service 
 

@@ -1,1 +1,1 @@
-docker run -p 25565:25565 -p 49565:49565 -i -t minecraft /bin/bash
+docker run -i -t minecraft /bin/bash
