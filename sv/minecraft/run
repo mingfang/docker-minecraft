@@ -2,6 +2,7 @@
 
 #sv start socklog-unix || exit 1
 
+mkfifo command-fifo
+
 exec 2>&1
-#exec java -server -Xmx1g -Xms256m -jar /minecraft_server.jar nogui
-exec java -server -Xmx1g -Xms256m -jar /craftbukkit-1.8.8-R0.1-SNAPSHOT-latest.jar
+exec java -server -Xmx1g -Xms256m -jar /craftbukkit-1.8.8-R0.1-SNAPSHOT-latest.jar nogui <> command-fifo
