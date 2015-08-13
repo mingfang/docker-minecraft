@@ -2,6 +2,8 @@
 
 #sv start socklog-unix || exit 1
 
+cd /
+rm -f command-fifo
 mkfifo command-fifo
 
 exec 2>&1
