@@ -1,1 +1,4 @@
-docker run -i -t minecraft /bin/bash
+#!/bin/bash
+[[ "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" =~  .*/(docker-)*([a-zA-Z0-9_-]+) ]]
+
+docker run -v `pwd`:/docker -w /docker --rm -it ${BASH_REMATCH[2]} /bin/bash
