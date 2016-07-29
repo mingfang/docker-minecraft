@@ -28,7 +28,7 @@ RUN wget -O minecraft_server.jar https://s3.amazonaws.com/Minecraft.Download/ver
 #Eula
 RUN echo "eula=true" > eula.txt
 
-RUN wget http://download.getbukkit.org/13114107/craftbukkit-1102-r01-snapshot-latestjar
+RUN wget -O craftbukkit.jar https://www.getbukkit.org/files/craftbukkit-1.10.2-R0.1-SNAPSHOT-latest.jar
 
 #Node
 RUN wget -O - http://nodejs.org/dist/v0.12.7/node-v0.12.7-linux-x64.tar.gz | tar xz
