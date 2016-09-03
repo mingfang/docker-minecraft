@@ -6,5 +6,7 @@ cd /
 rm -f command-fifo
 mkfifo command-fifo
 
+cd /data
+
 exec 2>&1
-exec java -server -Xmx1g -Xms256m -jar craftbukkit.jar nogui <> command-fifo
+exec java -server -Xmx1g -Xms256m -jar /craftbukkit.jar nogui <> /command-fifo

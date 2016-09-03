@@ -52,6 +52,8 @@ RUN cd plugins && \
 #For tailing log
 RUN npm install -g frontail
 
+RUN mkdir /data
+
 # Add runit services
 COPY sv /etc/service 
 ARG BUILD_INFO
