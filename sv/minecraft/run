@@ -8,6 +8,9 @@ mkfifo command-fifo
 
 cp /eula.txt /data
 
+#copy plugins
+rsync -av /plugins/ /data/plugins/ --delete
+
 cd /data
 exec 2>&1
 exec java -server -Xmx1g -Xms256m -jar /craftbukkit.jar nogui <> /command-fifo
