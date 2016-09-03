@@ -43,6 +43,11 @@ RUN cd plugins && \
     wget http://dev.bukkit.org/media/files/809/44/NickNames.jar
 RUN cd plugins && \
     wget http://dev.bukkit.org/media/files/893/378/EssentialsCmd_v1.0.9.jar
+RUN cd plugins && \
+    wget https://dev.bukkit.org/media/files/922/48/worldedit-bukkit-6.1.3.jar
+RUN cd plugins && \
+    wget https://dev.bukkit.org/media/files/920/773/worldguard-6.1.2.jar
+
 
 #For tailing log
 RUN npm install -g frontail
