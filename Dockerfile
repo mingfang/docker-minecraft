@@ -24,19 +24,14 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 #Minecraft Server
 RUN wget -O minecraft_server.jar https://s3.amazonaws.com/Minecraft.Download/versions/1.10.2/minecraft_server.1.10.2.jar
-
-#Eula
-RUN echo "eula=true" > eula.txt
-
 RUN wget -O craftbukkit.jar https://www.getbukkit.org/files/craftbukkit-1.10.2-R0.1-SNAPSHOT-latest.jar
 
 #Node
-RUN wget -O - http://nodejs.org/dist/v0.12.7/node-v0.12.7-linux-x64.tar.gz | tar xz
+RUN wget -O - http://nodejs.org/dist/v6.5.0/node-v6.5.0-linux-x64.tar.gz | tar xz
 RUN mv node* node && \
     ln -s /node/bin/node /usr/local/bin/node && \
     ln -s /node/bin/npm /usr/local/bin/npm
 ENV NODE_PATH /usr/local/lib/node_modules
-RUN npm config set loglevel info
 
 #Plugins
 RUN mkdir -p plugins
@@ -51,6 +46,9 @@ RUN cd plugins && \
 
 #For tailing log
 RUN npm install -g frontail
+
+#Eula
+RUN echo "eula=true" > /eula.txt
 
 RUN mkdir /data
 
