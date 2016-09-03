@@ -51,6 +51,8 @@ RUN cd plugins && \
     wget https://dev.bukkit.org/media/files/894/359/Vault.jar
 RUN cd plugins && \
     wget https://dev.bukkit.org/media/files/941/243/bPermissions-2.12.jar
+RUN cd plugins && \
+    wget https://dev.bukkit.org/media/files/910/762/LaggRemover-0.2.2.jar
 
 
 #For tailing log
