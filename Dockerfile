@@ -59,6 +59,8 @@ RUN cd plugins && \
     wget https://dev.bukkit.org/media/files/912/81/Multiverse-Core-2.5-b717.jar
 RUN cd plugins && \
     wget https://dev.bukkit.org/media/files/898/528/Multiverse-Portals-2.5.jar
+RUN cd plugins && \
+    wget https://dev.bukkit.org/media/files/936/707/MassiveHat.jar
 
 #For tailing log
 RUN npm install -g frontail
