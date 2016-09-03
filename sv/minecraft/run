@@ -9,7 +9,7 @@ mkfifo command-fifo
 cp /eula.txt /data
 
 #copy plugins
-rsync -av /plugins/ /data/plugins/ --delete
+rsync -av /plugins/*.jar /data/plugins/ --delete
 
 cd /data
 exec 2>&1
