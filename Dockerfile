@@ -61,6 +61,8 @@ RUN cd plugins && \
     wget https://dev.bukkit.org/media/files/898/528/Multiverse-Portals-2.5.jar
 RUN cd plugins && \
     wget https://dev.bukkit.org/media/files/936/707/MassiveHat.jar
+RUN cd plugins && \
+    wget https://dev.bukkit.org/media/files/879/595/EchoPet_v2.8.0.jar
 
 #For tailing log
 RUN npm install -g frontail
