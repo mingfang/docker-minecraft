@@ -47,6 +47,8 @@ RUN cd plugins && \
     wget https://dev.bukkit.org/media/files/922/48/worldedit-bukkit-6.1.3.jar
 RUN cd plugins && \
     wget https://dev.bukkit.org/media/files/920/773/worldguard-6.1.2.jar
+RUN cd plugins && \
+    wget https://dev.bukkit.org/media/files/894/359/Vault.jar
 
 
 #For tailing log
