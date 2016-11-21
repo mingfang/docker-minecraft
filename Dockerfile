@@ -1,30 +1,33 @@
-FROM ubuntu:14.04
-  
+FROM ubuntu:16.04
+
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=en_US.UTF-8 \
     TERM=xterm
 RUN locale-gen en_US en_US.UTF-8
 RUN echo "export PS1='\e[1;31m\]\u@\h:\w\\$\[\e[0m\] '" >> /root/.bashrc
+RUN echo "export PS1='\e[1;31m\]\u@\h:\w\\$\[\e[0m\] '" >> /etc/bash.bashrc
 RUN apt-get update
 
 # Runit
-RUN apt-get install -y runit 
+RUN apt-get install -y --no-install-recommends runit
 CMD export > /etc/envvars && /usr/sbin/runsvdir-start
 RUN echo 'export > /etc/envvars' >> /root/.bashrc
 
 # Utilities
-RUN apt-get install -y vim less net-tools inetutils-ping wget curl git telnet nmap socat dnsutils netcat tree htop unzip sudo software-properties-common jq psmisc
+RUN apt-get install -y --no-install-recommends vim less net-tools inetutils-ping wget curl git telnet nmap socat dnsutils netcat tree htop unzip sudo software-properties-common jq psmisc iproute python ssh
 
 #Install Oracle Java 8
 RUN add-apt-repository ppa:webupd8team/java -y && \
     apt-get update && \
     echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
-    apt-get install -y oracle-java8-installer
+    apt-get install -y oracle-java8-installer && \
+    apt install oracle-java8-unlimited-jce-policy && \
+    rm -r /var/cache/oracle-jdk8-installer
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 #Minecraft Server
-RUN wget -O minecraft_server.jar https://s3.amazonaws.com/Minecraft.Download/versions/1.10.2/minecraft_server.1.10.2.jar
-RUN wget -O craftbukkit.jar https://www.getbukkit.org/files/craftbukkit-1.10.2-R0.1-SNAPSHOT-latest.jar
+RUN wget -O minecraft_server.jar https://s3.amazonaws.com/Minecraft.Download/versions/1.11/minecraft_server.1.11.jar
+RUN wget -O craftbukkit.jar https://repo.getbukkit.org/files/craftbukkit-1.11.jar
 
 #Node
 RUN wget -O - http://nodejs.org/dist/v6.5.0/node-v6.5.0-linux-x64.tar.gz | tar xz
@@ -36,13 +39,13 @@ ENV NODE_PATH /usr/local/lib/node_modules
 #Plugins
 RUN mkdir -p plugins
 RUN cd plugins && \
-    wget http://dev.bukkit.org/media/files/889/301/MassiveCore.jar
+    wget https://dev.bukkit.org/media/files/946/595/MassiveCore.jar
 RUN cd plugins && \
     wget http://dev.bukkit.org/media/files/889/302/Factions.jar
 RUN cd plugins && \
     wget http://dev.bukkit.org/media/files/809/44/NickNames.jar
 RUN cd plugins && \
-    wget http://dev.bukkit.org/media/files/893/378/EssentialsCmd_v1.0.9.jar
+    wget https://dev.bukkit.org/media/files/954/929/EssentialsCmd_v1.1.3.jar
 RUN cd plugins && \
     wget https://dev.bukkit.org/media/files/922/48/worldedit-bukkit-6.1.3.jar
 RUN cd plugins && \
