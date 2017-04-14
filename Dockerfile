@@ -27,11 +27,11 @@ RUN add-apt-repository ppa:webupd8team/java -y && \
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 #Minecraft Server
-RUN wget -O minecraft_server.jar https://s3.amazonaws.com/Minecraft.Download/versions/1.11/minecraft_server.1.11.jar
-RUN wget -O craftbukkit.jar https://repo.getbukkit.org/files/craftbukkit-1.11.jar
+RUN wget -O minecraft_server.jar https://s3.amazonaws.com/Minecraft.Download/versions/1.11.2/minecraft_server.1.11.2.jar
+RUN wget -O craftbukkit.jar https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.11.2.jar
 
 #Node
-RUN wget -O - http://nodejs.org/dist/v6.5.0/node-v6.5.0-linux-x64.tar.gz | tar xz
+RUN wget -O - https://nodejs.org/dist/v7.9.0/node-v7.9.0-linux-x64.tar.gz | tar xz
 RUN mv node* node && \
     ln -s /node/bin/node /usr/local/bin/node && \
     ln -s /node/bin/npm /usr/local/bin/npm
@@ -40,33 +40,33 @@ ENV NODE_PATH /usr/local/lib/node_modules
 #Plugins
 RUN mkdir -p plugins
 RUN cd plugins && \
-    wget https://dev.bukkit.org/media/files/946/595/MassiveCore.jar
+    wget https://dev.bukkit.org/projects/mcore/files/2377287/MassiveCore.jar
 RUN cd plugins && \
-    wget http://dev.bukkit.org/media/files/889/302/Factions.jar
+    wget https://dev.bukkit.org/projects/factions/files/2377285/Factions.jar
 RUN cd plugins && \
-    wget http://dev.bukkit.org/media/files/809/44/NickNames.jar
+    wget https://dev.bukkit.org/projects/nicknamesx/files/2402665/NickNamesX.jar
 RUN cd plugins && \
-    wget https://dev.bukkit.org/media/files/954/929/EssentialsCmd_v1.1.3.jar
+    wget https://dev.bukkit.org/projects/essentialscmd/files/954929/EssentialsCmd_v1.1.3.jar
 RUN cd plugins && \
-    wget https://dev.bukkit.org/media/files/922/48/worldedit-bukkit-6.1.3.jar
+    wget https://dev.bukkit.org/projects/worldedit/files/956525/worldedit-bukkit-6.1.5.jar
 RUN cd plugins && \
-    wget https://dev.bukkit.org/media/files/920/773/worldguard-6.1.2.jar
+    wget https://dev.bukkit.org/projects/worldguard/files/956770/worldguard-6.2.jar
 RUN cd plugins && \
-    wget https://dev.bukkit.org/media/files/894/359/Vault.jar
+    wget https://dev.bukkit.org/projects/vault/files/894359/Vault.jar
 RUN cd plugins && \
-    wget https://dev.bukkit.org/media/files/941/243/bPermissions-2.12.jar
+    wget https://dev.bukkit.org/projects/bpermissions/files/941243/bPermissions-2.12.1.jar
 RUN cd plugins && \
-    wget https://dev.bukkit.org/media/files/910/762/LaggRemover-0.2.2.jar
+    wget https://dev.bukkit.org/projects/laggremoverplus/files/939930/LaggRemoverPlus-1.1.jar
 RUN cd plugins && \
-    wget https://dev.bukkit.org/media/files/920/878/dynmap-2.3.jar
+    wget https://dev.bukkit.org/projects/dynmap/files/2380584/dynmap-2.4.jar
 RUN cd plugins && \
-    wget https://dev.bukkit.org/media/files/912/81/Multiverse-Core-2.5-b717.jar
+    wget https://dev.bukkit.org/projects/multiverse-core/files/912081/Multiverse-Core-2.5-b717.jar
 RUN cd plugins && \
-    wget https://dev.bukkit.org/media/files/898/528/Multiverse-Portals-2.5.jar
+    wget https://dev.bukkit.org/projects/multiverse-portals/files/898528/Multiverse-Portals-2.6-b725.jar
 RUN cd plugins && \
-    wget https://dev.bukkit.org/media/files/936/707/MassiveHat.jar
+    wget https://dev.bukkit.org/projects/massivehat/files/2377288/MassiveHat-2.10.0.jar
 RUN cd plugins && \
-    wget https://dev.bukkit.org/media/files/879/595/EchoPet_v2.8.0.jar
+    wget https://dev.bukkit.org/projects/echopet/files/879595/EchoPet_v2.8.0.jar
 
 #For tailing log
 RUN npm install -g frontail
