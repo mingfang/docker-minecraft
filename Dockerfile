@@ -49,7 +49,7 @@ RUN wget --trust-server-names https://dev.bukkit.org/projects/worldedit/files/la
 RUN wget --trust-server-names https://dev.bukkit.org/projects/worldguard/files/latest
 RUN wget --trust-server-names https://dev.bukkit.org/projects/vault/files/latest
 RUN wget --trust-server-names https://dev.bukkit.org/projects/bpermissions/files/latest
-RUN wget --trust-server-names https://dev.bukkit.org/projects/laggremoverplus/files/latest
+RUN wget --trust-server-names https://dev.bukkit.org/projects/clearlagg/files/latest
 RUN wget --trust-server-names https://dev.bukkit.org/projects/dynmap/files/latest
 RUN wget --trust-server-names https://dev.bukkit.org/projects/multiverse-core/files/latest
 RUN wget --trust-server-names https://dev.bukkit.org/projects/multiverse-portals/files/latest
