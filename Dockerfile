@@ -36,36 +36,25 @@ RUN mv node* node && \
     ln -s /node/bin/npm /usr/local/bin/npm
 ENV NODE_PATH /usr/local/lib/node_modules
 
-#Plugins
+# Plugins
+
 RUN mkdir -p plugins
-RUN cd plugins && \
-    wget https://dev.bukkit.org/projects/mcore/files/2377287/MassiveCore.jar
-RUN cd plugins && \
-    wget https://dev.bukkit.org/projects/factions/files/2377285/Factions.jar
-RUN cd plugins && \
-    wget https://dev.bukkit.org/projects/nicknamesx/files/2402665/NickNamesX.jar
-RUN cd plugins && \
-    wget https://dev.bukkit.org/projects/essentialscmd/files/954929/EssentialsCmd_v1.1.3.jar
-RUN cd plugins && \
-    wget https://dev.bukkit.org/projects/worldedit/files/956525/worldedit-bukkit-6.1.5.jar
-RUN cd plugins && \
-    wget https://dev.bukkit.org/projects/worldguard/files/956770/worldguard-6.2.jar
-RUN cd plugins && \
-    wget https://dev.bukkit.org/projects/vault/files/894359/Vault.jar
-RUN cd plugins && \
-    wget https://dev.bukkit.org/projects/bpermissions/files/941243/bPermissions-2.12.1.jar
-RUN cd plugins && \
-    wget https://dev.bukkit.org/projects/laggremoverplus/files/939930/LaggRemoverPlus-1.1.jar
-RUN cd plugins && \
-    wget https://dev.bukkit.org/projects/dynmap/files/2380584/dynmap-2.4.jar
-RUN cd plugins && \
-    wget https://dev.bukkit.org/projects/multiverse-core/files/912081/Multiverse-Core-2.5-b717.jar
-RUN cd plugins && \
-    wget https://dev.bukkit.org/projects/multiverse-portals/files/898528/Multiverse-Portals-2.6-b725.jar
-RUN cd plugins && \
-    wget https://dev.bukkit.org/projects/massivehat/files/2377288/MassiveHat-2.10.0.jar
-RUN cd plugins && \
-    wget https://dev.bukkit.org/projects/echopet/files/879595/EchoPet_v2.8.0.jar
+WORKDIR /plugins
+
+RUN wget --trust-server-names https://dev.bukkit.org/projects/mcore/files/latest
+RUN wget --trust-server-names https://dev.bukkit.org/projects/factions/files/latest
+RUN wget --trust-server-names https://dev.bukkit.org/projects/nicknamesx/files/latest
+RUN wget --trust-server-names https://dev.bukkit.org/projects/essentialscmd/files/latest
+RUN wget --trust-server-names https://dev.bukkit.org/projects/worldedit/files/latest
+RUN wget --trust-server-names https://dev.bukkit.org/projects/worldguard/files/latest
+RUN wget --trust-server-names https://dev.bukkit.org/projects/vault/files/latest
+RUN wget --trust-server-names https://dev.bukkit.org/projects/bpermissions/files/latest
+RUN wget --trust-server-names https://dev.bukkit.org/projects/laggremoverplus/files/latest
+RUN wget --trust-server-names https://dev.bukkit.org/projects/dynmap/files/latest
+RUN wget --trust-server-names https://dev.bukkit.org/projects/multiverse-core/files/latest
+RUN wget --trust-server-names https://dev.bukkit.org/projects/multiverse-portals/files/latest
+RUN wget --trust-server-names https://dev.bukkit.org/projects/massivehat/files/latest
+RUN wget --trust-server-names https://dev.bukkit.org/projects/echopet/files/latest
 
 #For tailing log
 RUN npm install -g frontail
