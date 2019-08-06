@@ -2,15 +2,16 @@
 
 #sv start socklog-unix || exit 1
 
-cd /
-rm -f command-fifo
-mkfifo command-fifo
+FIFO=/dev/shm/command-fifo
+rm -f ${FIFO}
+mkfifo ${FIFO}
 
+# eula
 cp /eula.txt /data
 
 #copy plugins
-rsync -av /plugins/*.jar /data/plugins/ --delete
+rsync -av /plugins/ /data/plugins/ --delete
 
 cd /data
 exec 2>&1
-exec java -server -Xmx1g -Xms256m -jar /craftbukkit.jar nogui <> /command-fifo
+exec java -server -Xmx2G -Xms512M -XX:+UseConcMarkSweepGC -jar /spigot*.jar nogui <> ${FIFO}
